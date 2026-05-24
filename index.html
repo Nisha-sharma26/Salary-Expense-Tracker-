@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cash Flow Tracker</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>💰 Cash Flow Tracker</h1>
+
+    <!-- SUMMARY -->
+    <div class="summary">
+
+      <div class="card">
+        <h2>Salary</h2>
+        <h3 id="salaryDisplay">₹0</h3>
+      </div>
+
+      <div class="card">
+        <h2>Expenses</h2>
+        <h3 id="expenseDisplay">₹0</h3>
+      </div>
+
+      <div class="card">
+        <h2>Balance</h2>
+        <h3 id="balanceDisplay">₹0</h3>
+        <p id="warningMessage"></p>
+      </div>
+
+    </div>
+
+    <!-- RESET BUTTONS -->
+    <div class="btn-row">
+
+      <button id="resetSalary">Reset Salary</button>
+      <button id="resetAll">Reset All</button>
+
+    </div>
+
+    <!-- CURRENCY -->
+    <div class="currency-box">
+      <label>Currency:</label>
+      <select id="currency">
+        <option value="INR">INR ₹</option>
+        <option value="USD">USD $</option>
+      </select>
+    </div>
+
+    <!-- FORM -->
+    <form id="expenseForm">
+
+      <input type="number" id="salaryInput" placeholder="Enter Salary">
+      <input type="text" id="expenseName" placeholder="Expense Name">
+      <input type="number" id="expenseAmount" placeholder="Expense Amount">
+
+      <button type="submit">Add Expense</button>
+
+    </form>
+
+    <p id="error"></p>
+
+    <!-- EXPENSE LIST -->
+    <div class="expense-list">
+      <h2>History</h2>
+      <div id="expenseContainer"></div>
+    </div>
+
+    <!-- CHART -->
+    <div class="chart-box">
+      <canvas id="expenseChart"></canvas>
+    </div>
+
+    <!-- PDF -->
+    <button id="downloadPDF">Download PDF Report</button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
