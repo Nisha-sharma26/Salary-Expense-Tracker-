@@ -37,7 +37,6 @@ const ExpenseForm = ({ onAddExpense, isSubmitting }) => {
       ...prev,
       [name]: value
     }));
-    // Clear error on change
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -56,7 +55,6 @@ const ExpenseForm = ({ onAddExpense, isSubmitting }) => {
       
       onAddExpense(sanitizedData);
       
-      // Reset form
       setFormData({
         description: '',
         amount: '',

@@ -16,11 +16,9 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initial load simulation
   useEffect(() => {
     const fetchExpenses = async () => {
       setIsLoading(true);
-      // Simulate slow 3G connection delay
       await new Promise(resolve => setTimeout(resolve, 1500));
       setExpenses(mockData);
       setIsLoading(false);
@@ -32,12 +30,11 @@ function App() {
 
   const handleAddExpense = async (expenseData) => {
     setIsSubmitting(true);
-    // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     const newExpense = {
       ...expenseData,
-      id: Date.now() // Simple ID generation
+      id: Date.now()
     };
     
     setExpenses(prev => [newExpense, ...prev]);
@@ -46,7 +43,6 @@ function App() {
   };
 
   const handleDeleteExpense = async (id) => {
-    // Simulate network delay
     setIsLoading(true);
     await new Promise(resolve => setTimeout(resolve, 500));
     setExpenses(prev => prev.filter(exp => exp.id !== id));
